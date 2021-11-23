@@ -1,0 +1,18 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CollisionTriggerHeal : MonoBehaviour
+{
+    private ICollisionHandler handler;
+
+    private void Start()
+    {
+        handler = GetComponentInParent<ICollisionHandler>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        handler.CollisionEnter2(gameObject.name, collision.gameObject);
+    }
+}
